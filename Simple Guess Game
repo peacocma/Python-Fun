@@ -1,0 +1,34 @@
+from random import randint
+loop_condition = True
+
+maxnum = int(raw_input('What is the max num? '))
+
+condition = randint(0,maxnum)
+guesses = {}
+guess = 0
+
+while loop_condition:
+  while guess in guesses:
+  		guess = randint(0,maxnum)
+  distance = condition - guess
+  print "I am a loop, I guess random numbers like: %s" %guess
+  if guess == condition:
+    print 
+    print 'LOL I found it! Even though I knew it the whole time...'
+    print
+    print 'The right number was %s' %guess
+    loop_condition = False
+    print
+  else:
+      guesses[guess] = (distance) 
+
+    
+print "This is how close I was the whole time"
+for x in guesses:
+   print x, 'was off by %s' %guesses[x]
+    
+wcount = 0 
+for x in guesses:
+  wcount = wcount + 1
+print
+print "prior to guesing the right answer, I guessed incorrectly %s times" %wcount
